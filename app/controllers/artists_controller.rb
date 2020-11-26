@@ -1,6 +1,7 @@
 class ArtistsController < ApplicationController
+    before_action :set_artist, only: [:show, :edit, :update]
+
     def show
-        set_artist
     end
 
     def new
@@ -13,11 +14,9 @@ class ArtistsController < ApplicationController
     end
 
     def edit
-        set_artist
     end
 
     def update
-        set_artist
         @artist.update(artist_params)
         redirect_to artist_path(@artist)
     end
