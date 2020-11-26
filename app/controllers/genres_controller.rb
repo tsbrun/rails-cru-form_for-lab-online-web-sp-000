@@ -1,6 +1,7 @@
 class GenresController < ApplicationController
+    before_action :set_genre, only: [:show, :edit, :update]
+
     def show
-        set_genre
     end
 
     def new
@@ -13,11 +14,9 @@ class GenresController < ApplicationController
     end
 
     def edit 
-        set_genre
     end
 
     def update 
-        set_genre
         @genre.update(genre_params)
         redirect_to genre_path(@genre)
     end
